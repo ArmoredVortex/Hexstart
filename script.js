@@ -2,8 +2,7 @@
 
 const blob = document.getElementById("blob");
 
-window.onpointermove = event => { 
-  const { clientX, clientY } = event;
+window.onpointermove = ({clientX, clientY}) => { 
   
   blob.animate({
     left: `${clientX}px`,
