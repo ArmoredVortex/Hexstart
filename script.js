@@ -31,7 +31,9 @@ blob_switch = document.getElementById("blob-switch");
 blob_switch.addEventListener("click", () => {
   if (blob_switch.checked) {
     blob.style.display = "block";
+    setCookie("blob", "true", 365);
   } else {
     blob.style.display = "none";
+    setCookie("blob", "false", 365);
   }
 });
