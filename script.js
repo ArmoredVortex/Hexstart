@@ -11,3 +11,13 @@ window.onpointermove = ({ clientX, clientY }) => {
     { duration: 3000, fill: "forwards" }
   );
 };
+
+const settings = document.getElementById("settings-button");
+settings.onclick = () => {
+  document.getElementById("sidemenu").classList.toggle("active");
+}
+
+const close = document.getElementById("close-button");
+close.onclick = () => {
+  document.getElementById("sidemenu").classList.toggle("active");
+}
