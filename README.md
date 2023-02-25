@@ -1,4 +1,4 @@
-<img src="preview.png">
+<img src="Preview.png">
 
 # Editing Links
 - Edit the `index.html` file and change the links/icons.
