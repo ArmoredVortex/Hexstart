@@ -12,12 +12,18 @@ window.onpointermove = ({ clientX, clientY }) => {
   );
 };
 
-const settings = document.getElementById("settings-button");
-settings.onclick = () => {
-  document.getElementById("sidemenu").classList.toggle("active");
-}
+sidemenu=document.getElementById("sidemenu");
+settings_button=document.getElementById("settings-button");
+blur=document.getElementById("blur");
 
-const close = document.getElementById("close-button");
-close.onclick = () => {
-  document.getElementById("sidemenu").classList.toggle("active");
-}
+// console log is settings button is clicked
+settings_button.addEventListener("click", function(){
+    sidemenu.classList.toggle("active");
+});
+
+// close sidemenu when clicked outside
+window.addEventListener("click", function(e){
+    if(e.target == blur){
+        sidemenu.classList.remove("active");
+    }
+});
