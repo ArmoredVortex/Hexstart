@@ -20,7 +20,7 @@ function getCookie(name) {
 }
 
 window.onload = function() {
-    if (getCookie("blob") == "true" || getCookie("blob") == null) {
+    if (getCookie("blob") == "true") {
         blob_switch.checked = true;
         blob.style.display = "block";
     } else {

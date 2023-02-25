@@ -3,6 +3,9 @@
 let blob = document.getElementById("blob");
 
 window.onpointermove = ({ clientX, clientY }) => {
+  if (blob_switch.checked == false) {
+    return;
+  }
   blob.animate(
     {
       left: `${clientX}px`,
