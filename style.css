@@ -1,100 +1,113 @@
+/*define root variables */
+:root {
+  --background-color: #101112;
+  --icon-color: #000000;
+  --hex-gradient-1: #00ffb8;
+  --hex-gradient-2: #13ce9a;
+}
+
 body {
-    background-color: #101112;
-    overflow: hidden;
+  background-color: var(--background-color);
+  overflow: hidden;
 }
 
 .hexagon {
-    width: 70px;
-    height: 100px;
-    background-image: linear-gradient(90deg, #00ffb8, #13ce9a);
-    border-radius: 15px;
-    transition: transform 400ms ease;
-    position: fixed;
+  width: 70px;
+  height: 100px;
+  background-image: linear-gradient(
+    90deg,
+    var(--hex-gradient-1),
+    var(--hex-gradient-2)
+  );
+  border-radius: 15px;
+  transition: transform 400ms ease;
+  position: fixed;
 }
 .hexagon:hover {
-    transform: rotate(30deg);
+  transform: rotate(30deg);
 }
-.hexagon:before, .hexagon:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: inherit;
-    height: inherit;
-    background-image: inherit;
-    border-radius: inherit;
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: inherit;
+  height: inherit;
+  background-image: inherit;
+  border-radius: inherit;
 }
 .hexagon:before {
-    transform: rotate(60deg);
+  transform: rotate(60deg);
 }
 .hexagon:after {
-    transform: rotate(-60deg);
+  transform: rotate(-60deg);
 }
 
 /* 5x2 grid */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-gap: 20px;
-    width: 500px;
-    height: 150px;
-    padding: 20px;
-    box-sizing: border-box;
-    /* align in center of screen */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 20px;
+  width: 500px;
+  height: 150px;
+  padding: 20px;
+  box-sizing: border-box;
+  /* align in center of screen */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .center {
-    /* align in center */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10px;
+  /* align in center */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
 }
 
 .hex-icon {
-    /* align vertically in center */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-size: 35px;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    color: black;
+  /* align vertically in center */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 35px;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  color: var(--icon-color);
 }
 
 #blob {
-    background-color: white;
-    height: 20vmax;
-    aspect-ratio: 1;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
-    border-radius: 50%;
-    background: linear-gradient(to right, aquamarine, mediumpurple);
-    animation: rotate 20s infinite;
-    opacity: 0.8;
+  background-color: white;
+  height: 20vmax;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right, aquamarine, mediumpurple);
+  animation: rotate 20s infinite;
+  opacity: 0.8;
 }
 
 /* #blur covers entire screen */
 #blur {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background: linear-gradient(to right, aquamarine, mediumpurple); */
-    backdrop-filter: blur(100px);
-    z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(to right, aquamarine, mediumpurple); */
+  backdrop-filter: blur(100px);
+  z-index: 0;
 }
