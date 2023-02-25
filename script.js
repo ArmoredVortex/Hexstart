@@ -1,11 +1,13 @@
 /* -- Glow effect -- */
 
-let blob = document.getElementById("blob");
+const blob = document.getElementById("blob");
+const sideMenu = document.getElementById("sidemenu");
+const settings_button = document.getElementById("settings-button");
+const blur = document.getElementById("blur");
 
-window.onpointermove = ({ clientX, clientY }) => {
-  if (blob_switch.checked == false) {
-    return;
-  }
+window.addEventListener("pointermove", ({ clientX, clientY }) => {
+  if (!blob_switch.checked) return;
+
   blob.animate(
     {
       left: `${clientX}px`,
@@ -13,30 +15,12 @@ window.onpointermove = ({ clientX, clientY }) => {
     },
     { duration: 3000, fill: "forwards" }
   );
-};
-
-let sidemenu = document.getElementById("sidemenu");
-let settings_button = document.getElementById("settings-button");
-let blur = document.getElementById("blur");
-
-settings_button.addEventListener("click", function () {
-  sidemenu.classList.toggle("active");
 });
 
-window.addEventListener("click", (e) => {
-  if (e.target == blur) {
-    sidemenu.classList.remove("active");
-  }
-});
-
-blob_switch = document.getElementById("blob-switch");
+settings_button.addEventListener("click", () => sideMenu.classList.add("active"));
+blur.addEventListener("click", () => sideMenu.classList.remove("active"));
 
 blob_switch.addEventListener("click", () => {
-  if (blob_switch.checked) {
-    blob.style.display = "block";
-    setCookie("blob", "true", 365);
-  } else {
-    blob.style.display = "none";
-    setCookie("blob", "false", 365);
-  }
+    blob.style.display = blob_switch.checked ? "block" : "none";
+    localStorage.setItem("blob", blob_switch.checked);
 });
