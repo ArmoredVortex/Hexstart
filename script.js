@@ -1,6 +1,6 @@
 /* -- Glow effect -- */
 
-const blob = document.getElementById("blob");
+let blob = document.getElementById("blob");
 
 window.onpointermove = ({ clientX, clientY }) => {
   blob.animate(
@@ -12,18 +12,26 @@ window.onpointermove = ({ clientX, clientY }) => {
   );
 };
 
-sidemenu=document.getElementById("sidemenu");
-settings_button=document.getElementById("settings-button");
-blur=document.getElementById("blur");
+let sidemenu = document.getElementById("sidemenu");
+let settings_button = document.getElementById("settings-button");
+let blur = document.getElementById("blur");
 
-// console log is settings button is clicked
-settings_button.addEventListener("click", function(){
-    sidemenu.classList.toggle("active");
+settings_button.addEventListener("click", function () {
+  sidemenu.classList.toggle("active");
 });
 
-// close sidemenu when clicked outside
-window.addEventListener("click", function(e){
-    if(e.target == blur){
-        sidemenu.classList.remove("active");
-    }
+window.addEventListener("click", (e) => {
+  if (e.target == blur) {
+    sidemenu.classList.remove("active");
+  }
+});
+
+blob_switch = document.getElementById("blob-switch");
+
+blob_switch.addEventListener("click", () => {
+  if (blob_switch.checked) {
+    blob.style.display = "block";
+  } else {
+    blob.style.display = "none";
+  }
 });
