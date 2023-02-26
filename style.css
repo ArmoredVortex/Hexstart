@@ -23,6 +23,10 @@ body {
   transition: transform 400ms ease;
   position: fixed;
 }
+
+.no-rotation:hover{
+  transform: rotate(0deg) !important;
+}
 .hexagon:hover {
   transform: rotate(30deg);
 }
