@@ -50,3 +50,8 @@ if (localStorage.getItem("i_color") != null) {
   root.style.setProperty("--icon-color", localStorage.getItem("i_color"));
   document.getElementById("color-icon").value = localStorage.getItem("i_color");
 }
+
+if (localStorage.getItem("b_color") != null) {
+  root.style.setProperty("--blob-color", localStorage.getItem("b_color"));
+  document.getElementById("color-blob").value = localStorage.getItem("b_color");
+}

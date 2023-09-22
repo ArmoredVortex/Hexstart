@@ -4,6 +4,7 @@
   --icon-color: #000000;
   --hex-gradient-1: #00ffb8;
   --hex-gradient-2: #13ce9a;
+  --blob-color: #ffffff;
 }
 
 body {
@@ -99,7 +100,7 @@ body {
   top: 50%;
   translate: -50% -50%;
   border-radius: 50%;
-  background: linear-gradient(to right, aquamarine, mediumpurple);
+  background: linear-gradient(to right, var(--blob-color), var(--hex-gradient-1));
   animation: rotate 20s infinite;
   opacity: 0.8;
   display: none;
