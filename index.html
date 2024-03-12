@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/2b5d740196.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@200;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@200;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,15 +28,15 @@
         <div class="settings-options">
             <div class="setting">
                 <div class="setting-name">
-                   <p>Mouse Blob</p>
+                    <p>Mouse Blob</p>
                 </div>
-                <input type="checkbox" id="blob-switch"><label for="blob-switch" >Toggle</label>
+                <input type="checkbox" id="blob-switch"><label for="blob-switch">Toggle</label>
             </div>
             <div class="setting">
                 <div class="setting-name">
-                   <p>Rotation</p>
+                    <p>Rotation</p>
                 </div>
-                <input type="checkbox" id="rotation-switch"><label for="rotation-switch" >Toggle</label>
+                <input type="checkbox" id="rotation-switch"><label for="rotation-switch">Toggle</label>
             </div>
             <div class="setting">
                 <div class="setting-name">
@@ -46,25 +46,25 @@
             </div>
             <div class="setting">
                 <div class="setting-name">
-                   <p>Primary Color</p>
+                    <p>Primary Color</p>
                 </div>
                 <input type="color" id="color-primary" value="#00ffb8">
             </div>
             <div class="setting">
                 <div class="setting-name">
-                   <p>Secondary Color</p>
+                    <p>Secondary Color</p>
                 </div>
                 <input type="color" id="color-secondary" value="#13ce9a">
             </div>
             <div class="setting">
                 <div class="setting-name">
-                   <p>Icon Color</p>
+                    <p>Icon Color</p>
                 </div>
                 <input type="color" id="color-icon" value="#000000">
             </div>
             <div class="setting">
                 <div class="setting-name">
-                   <p>Blob Color</p>
+                    <p>Blob Color</p>
                 </div>
                 <input type="color" id="color-blob" value="#ffffff">
             </div>
@@ -73,6 +73,19 @@
             </div>
         </div>
     </div>
+
+    <!-- Exam Countdown -->
+    <div style="color: white; position: absolute;">
+        JEE Adv
+        <br>
+        <div id="timeRemainingadv"></div>
+    </div>
+    <div style="color: white; position: absolute; top: 50px;">
+        JEE Main
+        <br>
+        <div id="timeRemainingMain"></div>
+    </div>
+    <!-- --------------- -->
 
     <div class="grid">
         <div class="center">
@@ -116,6 +129,39 @@
         </div>
     </div>
 </body>
+
+<!-- Exam Countdown script -->
+<script>
+    var endTimeAdv = new Date("2024-05-26T00:00:00") / 1000;
+    var endTimeMain = new Date("2024-04-01T00:00:00") / 1000;
+    function setClockAdv() {
+        var elapsed = new Date() / 1000;
+        var totalSec = endTimeAdv - elapsed;
+        var d = parseInt(totalSec / (3600 * 24))
+        var h = parseInt(totalSec / 3600 % 24)
+        var m = parseInt(totalSec / 60) % 60;
+        var s = parseInt(totalSec % 60, 10);
+        var result = d + " days " + h + " hours, " + m + " minutes " + s + " seconds";
+        document.getElementById('timeRemainingadv').innerHTML = result;
+        setTimeout(setClockAdv, 1000);
+    }
+    function setClockMain() {
+        var elapsed = new Date() / 1000;
+        var totalSec = endTimeMain - elapsed;
+        var d = parseInt(totalSec / (3600 * 24))
+        var h = parseInt(totalSec / 3600 % 24)
+        var m = parseInt(totalSec / 60) % 60;
+        var s = parseInt(totalSec % 60, 10);
+        var result = d + " days " + h + " hours, " + m + " minutes " + s + " seconds";
+        document.getElementById('timeRemainingMain').innerHTML = result;
+        setTimeout(setClockMain, 1000);
+    }
+    setClockAdv();
+    setClockMain();
+</script>
+<!-- ---------------- -->
+
+
 <script src="cookies.js" defer></script>
 <script src="script.js" defer></script>
 <script src="color.js" async defer></script>
