@@ -80,11 +80,6 @@
         <br>
         <div id="timeRemainingadv"></div>
     </div>
-    <div style="color: white; position: absolute; top: 50px;">
-        JEE Main
-        <br>
-        <div id="timeRemainingMain"></div>
-    </div>
     <!-- --------------- -->
 
     <div class="grid">
@@ -133,7 +128,6 @@
 <!-- Exam Countdown script -->
 <script>
     var endTimeAdv = new Date("2024-05-26T00:00:00") / 1000;
-    var endTimeMain = new Date("2024-04-01T00:00:00") / 1000;
     function setClockAdv() {
         var elapsed = new Date() / 1000;
         var totalSec = endTimeAdv - elapsed;
@@ -145,19 +139,7 @@
         document.getElementById('timeRemainingadv').innerHTML = result;
         setTimeout(setClockAdv, 1000);
     }
-    function setClockMain() {
-        var elapsed = new Date() / 1000;
-        var totalSec = endTimeMain - elapsed;
-        var d = parseInt(totalSec / (3600 * 24))
-        var h = parseInt(totalSec / 3600 % 24)
-        var m = parseInt(totalSec / 60) % 60;
-        var s = parseInt(totalSec % 60, 10);
-        var result = d + " days " + h + " hours, " + m + " minutes " + s + " seconds";
-        document.getElementById('timeRemainingMain').innerHTML = result;
-        setTimeout(setClockMain, 1000);
-    }
     setClockAdv();
-    setClockMain();
 </script>
 <!-- ---------------- -->
 
